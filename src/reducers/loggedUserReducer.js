@@ -1,17 +1,18 @@
 const GET_LOGGED_USER = 'GET_LOGGED_USER'
 const SET_LOGGED_USER = 'SET_LOGGED_USER'
+const SET_LOGGED_TOKEN = 'SET_LOGGED_TOKEN'
 const initialState = {
-	pending: true,
-	logged: false
+	logged: false,
+	token: ""
 }
 
 export function loggedUserReducer(state = initialState, action) {
 	// debugger
 	switch (action.type) {
 		case GET_LOGGED_USER:
-			return Object.assign({}, state, { pending: false})
+			return Object.assign({}, state)
 		case SET_LOGGED_USER:
-			return Object.assign({}, state, { pending:false, logged: action.logged})
+			return Object.assign({}, state, { logged: action.logged })
 		default:
 			return state
 	}
