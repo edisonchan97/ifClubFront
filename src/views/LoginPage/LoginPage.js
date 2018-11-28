@@ -19,6 +19,7 @@ class NormalLoginForm extends React.Component {
 		this.state = {
 			username: '',
 			password: '',
+			showPassword:false
 		}
 	}
 
@@ -32,6 +33,13 @@ class NormalLoginForm extends React.Component {
 			this.setState({
 				...this.validatePassword(upwd, true),
 				password: '',
+			})
+			return
+		}
+		if(uname === ""){
+			this.setState({
+				...this.validateUsername(uname, true),
+				username: '',
 			})
 			return
 		}
@@ -107,6 +115,7 @@ class NormalLoginForm extends React.Component {
 			return {
 				passwordValidateStatus: 'error',
 				passwordErrorMsg: "Please input your Password!",
+				showPassword:false
 			};
 		} else if (errorPwd) {
 			return {
@@ -122,8 +131,15 @@ class NormalLoginForm extends React.Component {
 
 	}
 
+	showPwd = () => {
+		let flag = this.state.showPassword;
+		this.setState({
+			showPassword: !flag
+		})
+	}
 	render() {
 		const user = this.state;
+		const suffix = user.password !=="" ? <Icon type="eye" onClick={() => {this.showPwd()}} /> : null;
 		return (
 			<Row style={{ position: 'relative' }} type="flex" justify="center" align="middle">
 				<Col xs={20} sm={20} md={6} lg={6} xl={6}>
@@ -138,7 +154,7 @@ class NormalLoginForm extends React.Component {
 							<FormItem
 								validateStatus={user.passwordValidateStatus}
 								help={user.passwordErrorMsg}>
-								<Input value={user.password} className='login_page_input' onChange={(e) => { this.passwordChange(e) }} prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="密码" />
+								<Input value={user.password} onPressEnter={this.loginSubmit} suffix={suffix} className='login_page_input' onChange={(e) => { this.passwordChange(e) }} prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type={this.state.showPassword ? "text" : "password"} placeholder="密码" />
 							</FormItem>
 							<FormItem>
 								<Button className='login_page_input' type="primary" block onClick={this.loginSubmit}>Login</Button>
