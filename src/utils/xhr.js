@@ -8,13 +8,13 @@ export const getLoggedUser = () => {
 	}, 500)
 }
 
-export const login = () => {
+export const login = (username) => {
 	return new Promise((resolve, reject) => {
 	// 	setTimeout(() => {
 			store.dispatch({
 				type: 'SET_LOGGED_USER',
 				logged: true,
-				token: sessionStorage.getItem("IF_Club_Token")
+				username: username
 			})
 			resolve();
 		// }, 500)
@@ -23,12 +23,10 @@ export const login = () => {
 
 export const logout = () => {
 	return new Promise((resolve, reject) => {
-		setTimeout(() => {
 			store.dispatch({
 				type: 'SET_LOGGED_USER',
 				logged: false
 			})
 			resolve()
-		}, 500)
 	})
 }

@@ -8,14 +8,16 @@ class AuthorizedRoute extends React.Component{
 		getLoggedUser()
 	}
 
+
 	render() {
 		console.log(this.props)
-		const { component: Component, pending, logged, ...rest} = this.props
-		console.log('go', this.props.Component)
+		const { component: Component, pending, logged, ...rest} = this.props;
+		const IF_Club_Token = sessionStorage.getItem("IF_Club_Token");//调试的时候为了方便如果有token直接进入，届时要删除
 		return(
 			<Route {...rest} render={props => {
 				console.log('props', {...props})
-				return logged ? <Component {...props}/> : <Redirect to="/auth/login" />
+				// return  <Component {...props}/> 
+				return logged || IF_Club_Token ? <Component {...props}/> : <Redirect to="/auth/login" />
 			}}></Route>
 		)
 	}

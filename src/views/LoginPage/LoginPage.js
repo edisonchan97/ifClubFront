@@ -9,8 +9,9 @@ const FormItem = Form.Item;
 const openNotification = (name) => {
 	notification.open({
 		message: name,
-		description: 'Welcome to Intellifusion Club.',
+		description: 'Welcome to IFFrontEnd Club.',
 		icon: <Icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" />,
+		duration: 2,
 	});
 };
 class NormalLoginForm extends React.Component {
@@ -62,10 +63,10 @@ class NormalLoginForm extends React.Component {
 			})
 		} else if (res.code == 200) {
 			sessionStorage.setItem("IF_Club_Token", res.data.token)
-			login().then(() => {
+			login(uname).then(() => {
 				if (this.props.logged === true) {
 					openNotification(this.state.username)
-					this.props.history.push('/app')
+					this.props.history.push('/index')
 				}
 			});
 		}
@@ -143,7 +144,7 @@ class NormalLoginForm extends React.Component {
 		return (
 			<Row style={{ position: 'relative' }} type="flex" justify="center" align="middle">
 				<Col xs={20} sm={20} md={6} lg={6} xl={6}>
-					<Card title={<h4 style={{ textAlign: "center", color: '#1890ff' }}>Intellifusion-Club</h4>} bordered={true} style={{ marginTop: '50%', width: '100%', height: '300px', borderRadius: 5, boxShadow: ' 1px 2px 3px 3px #e4e4e4' }}>
+					<Card title={<h4 style={{ textAlign: "center", color: '#1890ff' }}>IFFrontEnd-Club</h4>} bordered={true} style={{ marginTop: '50%', width: '100%', height: '300px', borderRadius: 5, boxShadow: ' 1px 2px 3px 3px #e4e4e4' }}>
 						<Form  >
 							<FormItem
 								validateStatus={user.usernameValidateStatus}

@@ -2,13 +2,9 @@ import React from 'react'
 import { logout } from '../../utils/xhr'
 const AppHomePage = ({ history }) => (
 	<div>
-		App Home Page
-		<br /><br />
-		<button onClick={() => {
-			logout().then(() => {
-				history.push('/')
-			})
-		}}>Logout</button>
+		<div className="left"></div>
+		<div className="middle"></div>
+		<div className="right"></div>
 	</div>
 )
 

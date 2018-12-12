@@ -3,7 +3,7 @@ const SET_LOGGED_USER = 'SET_LOGGED_USER'
 const SET_LOGGED_TOKEN = 'SET_LOGGED_TOKEN'
 const initialState = {
 	logged: false,
-	token: ""
+	username: "chenzhuozhou504"
 }
 
 export function loggedUserReducer(state = initialState, action) {
@@ -12,7 +12,7 @@ export function loggedUserReducer(state = initialState, action) {
 		case GET_LOGGED_USER:
 			return Object.assign({}, state)
 		case SET_LOGGED_USER:
-			return Object.assign({}, state, { logged: action.logged })
+			return Object.assign({}, state, { logged: action.logged, username: action.username })
 		default:
 			return state
 	}
