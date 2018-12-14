@@ -1,7 +1,7 @@
 import React from 'react'
 import { Menu, Icon, Avatar } from 'antd';
 import { connect } from 'react-redux'
-
+import {getPageContent} from '../../api/api'
 class HomePageContent extends React.Component {
 	constructor(props) {  //构造函数
 		super(props);
@@ -9,12 +9,17 @@ class HomePageContent extends React.Component {
 		}
 	}
     componentWillMount =() => {
+        getPageContent().then(res=>{
+            console.log("666",res);
+        })
         
     }
 	render() {
 		return (
 			<>
-				
+				{
+                    
+                }
 				<style jsx="true">{
 					`
 				.avatar_title{

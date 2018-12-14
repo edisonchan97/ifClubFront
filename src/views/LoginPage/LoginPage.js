@@ -11,7 +11,7 @@ const openNotification = (name) => {
 		message: name,
 		description: 'Welcome to IFFrontEnd Club.',
 		icon: <Icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" />,
-		duration: 2,
+		duration: 1,
 	});
 };
 class NormalLoginForm extends React.Component {

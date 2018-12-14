@@ -40,3 +40,14 @@ export const changeIndexTab = (param) => {
 			resolve()
 	})
 }
+
+
+export const getPageContent = (param) => {
+	return new Promise((resolve, reject) => {
+			store.dispatch({
+				type: 'GET_PAGE_CONTENT',
+				...param
+			})
+			resolve()
+	})
+}

@@ -26,3 +26,15 @@ export function jwtTest(data) {
         return err;
     })
 }
+//接口2方法
+export function getPageContent(data) {
+    return server({
+        url: url.getPageContent,
+        method: 'get',
+        dataType: "json",
+        contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+        data: data
+    }).catch((err)=>{
+        return err;
+    })
+}

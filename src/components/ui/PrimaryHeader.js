@@ -8,15 +8,22 @@ class PrimaryHeader extends React.Component {
 		this.state={
 			offset:1
 		}
+		console.log("props:",props)
 	}
 	logOut = () => {
 		sessionStorage.removeItem("IF_Club_Token")
-		logout()
+		logout().then(
+			//  this.props.history.push("/auth/login") //不可行 是因为没有连接 history 需要用
+			() =>{
+			console.log(this.props)
+			// window.location.href= "/auth/login"
+			}
+		)
 	}
-	FocusSearch = (p) => {
+	FocusSearch = (num) => {
 		this.setState(
 			{
-				offset:p
+				offset:num
 			}
 		)
 	}
@@ -67,7 +74,7 @@ class PrimaryHeader extends React.Component {
 							// ref={node => this.userNameInput = node}
 						/>
 					</Col>
-					<Col className="primary_header_username" xs={{ span: 8, }} lg={{ span: 3, offset: 11}} md={{ span: 4, offset: 8 }}>
+					<Col className="primary_header_username" xs={{ span: 8, }} lg={{ span: 3, offset: 12}} md={{ span: 4, offset: 8 }}>
 						<Icon type="user" style={{ color: '#fff', marginRight: 10 }} />
 						<Popover placement="bottomRight" content={popInfo} trigger="click">
 							<span >{this.props.username}</span>

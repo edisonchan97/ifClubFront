@@ -2,7 +2,7 @@ import React from 'react'
 import { Menu, Icon, Avatar } from 'antd';
 import { changeIndexTab } from '../../utils/action'
 import { connect } from 'react-redux'
-
+import HomePageContent from './HomePageContent'
 class AppHomePage extends React.Component {
 	constructor(props) {  //构造函数
 		super(props);
@@ -43,7 +43,7 @@ class AppHomePage extends React.Component {
 						<Avatar className={currentTab == "NodeJs" ? "avatar_title" : ""} >Node</Avatar> NodeJs
         </Menu.Item>
 				</Menu>
-				
+				<HomePageContent />
 				<style jsx="true">{
 					`
 				.avatar_title{
