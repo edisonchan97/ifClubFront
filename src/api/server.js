@@ -46,12 +46,12 @@ axios.interceptors.response.use(
         return res.data;
     },
     function (error) { // 处理错误的内容
-        // console.log(error)
-        // console.log(error.message);
+        console.log(error)
+        console.log(error.message);
         message.destroy(); // 销毁动画
-        message.error(error.response.statusText)
+        message.error(error.response ? error.response.statusText : error.message)
         console.log(error.response);
-        return Promise.reject(error.response);
+        return Promise.reject(error.response ?error.response.statusText : error.message);
     }
 );
 export default axios

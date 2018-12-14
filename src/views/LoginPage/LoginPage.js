@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Card, Row, Col, Input, Icon, notification, Form } from 'antd'
-import { login } from '../../utils/xhr'
+import { login } from '../../utils/action'
 import './style.css'
 import { getToken, jwtTest } from '../../api/api'
 import { connect } from 'react-redux'
